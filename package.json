@@ -1,0 +1,67 @@
+{
+	"name": "fms",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite --port 3001",
+		"serve": "vite preview --mode development",
+		"watch": "vite build --watch --mode development",
+		"build": "vite build",
+		"build:post": "chmod +x ./environment.sh & ./environment.sh",
+		"lint": "npm run lint:js && npm run lint:ts && npm run lint:css",
+		"lint:js": "eslint . --ext .vue,.js,.ts --fix --ignore-path .eslintignore",
+		"lint:ts": "vue-tsc --noEmit",
+		"lint:css": "stylelint \"src/**/*.{vue,scss}\"",
+		"test:unit": "vitest --run"
+	},
+	"dependencies": {
+		"ui": "1.0.0",
+		"ui-icons": "1.0.0",
+		"utils": "1.0.0",
+		"axios": "0.26.0",
+		"core-js": "3.21.1",
+		"keycloak-js": "25.0.6",
+		"lodash.clonedeep": "4.5.0",
+		"lodash.isequal": "4.5.0",
+		"lodash.omit": "4.5.0",
+		"lodash.uniq": "4.5.0",
+		"pinia": "2.0.18",
+		"vue": "3.2.31",
+		"vue-router": "4.4.5"
+	},
+	"devDependencies": {
+		"eslint-config": "1.0.0",
+		"stylelint-config": "1.0.0",
+		"@pinia/testing": "0.0.13",
+		"@types/lodash.clonedeep": "4.5.7",
+		"@types/lodash.isequal": "4.5.6",
+		"@types/lodash.omit": "4.5.7",
+		"@types/lodash.throttle": "^4.1.9",
+		"@types/lodash.uniq": "4.5.7",
+		"@types/uuid": "^10.0.0",
+		"@vitejs/plugin-vue": "5.0.4",
+		"@vue/cli-plugin-babel": "5.0.8",
+		"@vue/test-utils": "2.1.0",
+		"cross-env": "7.0.3",
+		"eslint": "8.9.0",
+		"happy-dom": "14.11.0",
+		"postcss-prefix-selector": "1.13.0",
+		"prettier": "2.7.1",
+		"rollup-plugin-delete": "2.0.0",
+		"sass": "1.58.0",
+		"sass-loader": "13.2.0",
+		"typescript": "4.5.5",
+		"vite": "5.2.11",
+		"vite-svg-loader": "4.0.0",
+		"vitest": "1.6.0",
+		"vue-tsc": "1.0.9",
+		"webpack-assets-manifest": "5.0.6"
+	},
+	"optionalDependencies": {
+		"@rollup/rollup-linux-x64-gnu": "4.12.0"
+	},
+	"gitHooks": {
+		"pre-commit": "npm run lint",
+		"pre-push": "npm run test:unit"
+	}
+}
